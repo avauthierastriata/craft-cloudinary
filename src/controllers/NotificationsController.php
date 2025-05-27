@@ -27,7 +27,7 @@ class NotificationsController extends Controller
 
     public function actionProcess(): Response
     {
-        $this->requirePostRequest();
+        //$this->requirePostRequest();
 
         // Verify volume
         $volumeId = $this->request->getRequiredQueryParam('volume');
