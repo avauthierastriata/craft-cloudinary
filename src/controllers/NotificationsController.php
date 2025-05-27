@@ -31,7 +31,7 @@ class NotificationsController extends Controller
 
         // Verify volume
         $volumeId = $this->request->getRequiredQueryParam('volume');
-        $volumeHandle = Craft::$app->getRequest()->getQueryParam('volume') ?: 7;
+        $volumeId = Craft::$app->getRequest()->getQueryParam('volume') ?: 7;
 
         $volume = Craft::$app->getVolumes()->getVolumeById($volumeId);
 
