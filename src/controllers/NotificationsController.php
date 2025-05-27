@@ -225,10 +225,7 @@ class NotificationsController extends Controller
     private function _processUpload($volumeId, $subpath, $hasDynamicFolders): Response
     {
         $publicId = $this->request->getRequiredBodyParam('public_id');
-        $folder = $hasDynamicFolders
-            ? $this->request->getRequiredBodyParam('asset_folder')
-            : $this->request->getRequiredBodyParam('folder');
-        $folder = Craft::$app->getRequest()->getBodyParam('folder') ?? '';
+        $folder = $this->request->getRequiredBodyParam('folder'); ?? '';
         $size = $this->request->getRequiredBodyParam('bytes');
 
         if (!empty($subpath)) {
