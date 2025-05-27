@@ -31,6 +31,7 @@ class NotificationsController extends Controller
 
         // Verify volume
         $volumeId = $this->request->getRequiredQueryParam('volume');
+        $volumeHandle = Craft::$app->getRequest()->getQueryParam('volume') ?: 7;
 
         $volume = Craft::$app->getVolumes()->getVolumeById($volumeId);
 
@@ -227,6 +228,7 @@ class NotificationsController extends Controller
         $folder = $hasDynamicFolders
             ? $this->request->getRequiredBodyParam('asset_folder')
             : $this->request->getRequiredBodyParam('folder');
+        $folder = Craft::$app->getRequest()->getBodyParam('folder') ?? '';
         $size = $this->request->getRequiredBodyParam('bytes');
 
         if (!empty($subpath)) {
